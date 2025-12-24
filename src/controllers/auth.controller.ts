@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import * as Yup from "yup";
 import UserModel from "../models/user.model";
 import { encryp } from "../utils/encryption";
+import { generateToken } from "../utils/jwt";
 
 
 type TRegister = {
@@ -85,16 +86,21 @@ export default {
                 })
             }
 
+            const token = generateToken({
+                id      : userByIdentifier._id,
+                role    : userByIdentifier.role,
+            });
+
             res.status(200).json ({
-                message:"login success",
-                data:userByIdentifier,
+                message : "login success",
+                data    : token,
             });
 
         } catch (error) {
             const err = error as unknown as Error;
             res.status(400).json({
                 message : err.message,
-                data    :null,
+                data    : null,
             });
         }
     }
