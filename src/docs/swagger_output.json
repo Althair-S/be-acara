@@ -19,6 +19,9 @@
   "paths": {
     "/auth/register": {
       "post": {
+        "tags": [
+          "Auth"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -58,6 +61,9 @@
     },
     "/auth/login": {
       "post": {
+        "tags": [
+          "Auth"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -89,6 +95,9 @@
     },
     "/auth/me": {
       "get": {
+        "tags": [
+          "Auth"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -106,6 +115,37 @@
             "bearerAuth": []
           }
         ]
+      }
+    },
+    "/auth/activation": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "require": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActivationRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/ActivationRequest"
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -131,6 +171,46 @@
         },
         "xml": {
           "name": "LoginRequest"
+        }
+      },
+      "RegisterRequest": {
+        "type": "object",
+        "properties": {
+          "fullName": {
+            "type": "string",
+            "example": "test1"
+          },
+          "username": {
+            "type": "string",
+            "example": "test1"
+          },
+          "email": {
+            "type": "string",
+            "example": "test1@gmail.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "12341234"
+          },
+          "confirmPassword": {
+            "type": "string",
+            "example": "12341234"
+          }
+        },
+        "xml": {
+          "name": "RegisterRequest"
+        }
+      },
+      "ActivationRequest": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": "abcdef"
+          }
+        },
+        "xml": {
+          "name": "ActivationRequest"
         }
       }
     }

@@ -28,6 +28,19 @@ const doc = {
                 identifier : "elvians",
                 password   : "12341234",
             },
+
+            RegisterRequest : {
+                fullName : "test1",
+                username : "test1",
+                email    : "test1@gmail.com",
+                password : "12341234",
+                confirmPassword : "12341234",
+            },
+
+            ActivationRequest : {
+                code : "abcdef",
+            }
+
         },
     }
 }

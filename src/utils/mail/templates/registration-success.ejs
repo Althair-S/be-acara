@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Email</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #4f46e5;
+            color: #ffffff;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .content {
+            padding: 24px;
+            line-height: 1.6;
+        }
+
+        .content p {
+            margin: 0 0 16px;
+        }
+
+        .content ul {
+            padding-left: 20px;
+            margin: 16px 0;
+        }
+
+        .content li {
+            margin-bottom: 8px;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 12px 24px;
+            background-color: #4f46e5;
+            color: #ffffff !important;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .button:hover {
+            background-color: #4338ca;
+        }
+
+        .footer {
+            background-color: #f4f6f8;
+            text-align: center;
+            padding: 16px;
+            font-size: 12px;
+            color: #777;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Selamat Datang</h1>
+    </div>
+
+    <div class="content">
+        <p> Halo <strong> <%=username %> </strong>,</p>
+
+        <p>
+            Terima kasih telah mendaftar di layanan kami.  
+            Berikut adalah informasi akun Anda :
+        </p>
+
+        <ul>
+            <li><strong>Nama:</strong> <%=fullName %></li>
+            <li><strong>Email:</strong> <%=email %></li>
+            <li><strong>Tanggal Pendaftaran : </strong> <%=createdAt %></li>
+        </ul>
+
+        <p>Untuk memulai, silakan klik tombol di bawah ini:</p>
+
+        <a href="<%= activationLink %>" class="button">
+            Aktifkan Akun
+        </a>
+
+        <p>
+            Jika Anda memiliki pertanyaan, jangan ragu untuk menghubungi kami.
+        </p>
+
+        <p>Salam hangat,<br><strong>Tim ACARA</strong></p>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 ACARA Event Management System. Semua hak dilindungi.</p>
+    </div>
+</div>
+
+</body>
+</html>
